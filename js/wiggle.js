@@ -1,6 +1,6 @@
 function wiggle(element) {
   let angle = Math.random() * 2 * Math.PI;
-  const radius = 5;  
+  const radius = 10;  
   const speed = 0.005;  
 
   function animate() {
@@ -17,8 +17,40 @@ function wiggle(element) {
   animate();
 }
 
+function expandEvents(){
+  // document.querySelectorAll('.Project-Slots').forEach(slot => {
+  //   slot.addEventListener('click', function() {
+  //       this.classList.toggle('expand');
+  //   });
+  // });
+}
+function InfoTabsSetup(str){
+  document.querySelectorAll('[name="Information-'+ str+ '"]').forEach(element => {
+    element.addEventListener('click', function() {
+      if(this.classList.contains("enabled")){return;}
+      
 
-
+      // Remove the 'enabled' class from all children of the element with ID "Information-Tabs"
+      const tabsContainer = document.getElementById('Information-Tabs');
+      if (tabsContainer) {
+          Array.from(tabsContainer.children).forEach(child => {
+              child.classList.remove('enabled');
+          });
+      }
+      const tabsContent = document.querySelectorAll('#Information > div');
+      if (tabsContent) {
+          Array.from(tabsContent).forEach(child => {
+              child.classList.remove('enabled');
+          });
+      }
+      const targetElement = document.getElementById('Information-'+ str);
+      if (targetElement) {
+          targetElement.classList.toggle('enabled');
+      }
+      this.classList.add('enabled');
+  });
+  });
+}
 
 window.onload = function() {
   const wiggleElements = document.querySelectorAll('.wiggle');
@@ -26,14 +58,22 @@ window.onload = function() {
     wiggle(element);
   });
 
+  expandEvents();
+  InfoTabsSetup("Education");
+  InfoTabsSetup("Profile");
+  
+
+
   const follower = document.getElementById('follow-mouse');
+
+  
 
   document.addEventListener('mousemove', function(event) {
 
     const mouseX = event.pageX;
     const mouseY = event.pageY;
 
-    follower.style.transform = `translate(calc(${mouseX}px - 6vw), calc(${mouseY}px - 10vw))`;
+    follower.style.transform = `translate(calc(${mouseX}px - 4vw), calc(${mouseY}px - 8.5vw))`;
     
   });
 
