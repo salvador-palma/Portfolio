@@ -1,6 +1,6 @@
 @font-face {
     font-family: Inter;
-    src: url('/fonts/Inter_Variable.ttf');
+    src: url('Inter_Variable.ttf');
 }
 body{
     width:100vw;
