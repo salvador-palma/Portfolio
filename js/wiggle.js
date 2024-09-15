@@ -61,7 +61,13 @@ window.onload = function() {
   expandEvents();
   InfoTabsSetup("Education");
   InfoTabsSetup("Profile");
+  InfoTabsSetup("Skills");
   
+  const projectSection = document.getElementById('Projects');
+  const expandButton = document.getElementById('Expand-Projects');
+  expandButton.addEventListener("click", function(){
+    projectSection.classList.toggle("expand");
+  });
 
 
   const follower = document.getElementById('follow-mouse');

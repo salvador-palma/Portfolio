@@ -14,11 +14,30 @@ body{
     
 }
 html{scroll-behavior: smooth;}
+::-webkit-scrollbar {
+    width: .6vw;
+}
+::-webkit-scrollbar-track {
+    background: #20212D;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #37394D;
+    
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff9900;
+  }
+
 header{
     background-color: #1A1B25;
     display:flex;
     justify-content: space-between;
     padding: 1.5vw;
+    padding-right: 2.5vw;
     &>nav{
         display: flex;
         &>a{
@@ -127,6 +146,9 @@ header{
     width: 100vw;
     height: 5vw;
     z-index: 1;
+    &.darken{
+        background-color: #1e1f2b;
+    }
 }
 #Projects{
     background-color: #404358;
@@ -141,15 +163,99 @@ header{
         padding-top: 7vw;
         font-size: 1.7vw;
     }
+    &:not(.expand) .fade-content{
+            width:100vw;  
+            height:5vw;
+            position:relative;
+            transition: scale 0.3s ease-in-out;
+            &>#Expand-Projects{
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-25%);
+                transition: all .2s ease;
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &>img{
+                    height: auto; aspect-ratio: 1; width: 3vw;
+                    transform: rotateZ(180deg);
+                }
+                &>span{
+                    font-size: 1vw;
+                }
+                &>.see{
+                    display: none;
+                }
+                &:hover{
+                    transform: translateX(-25%) scale(1.1);
+                }
+            }
+    }
+    
+    
+    &.expand>#Project-Container{
+        overflow: hidden;
+        height:80vw;
+        
+        &>.fade-content{
+            background:linear-gradient(transparent , #404358 80%);
+            width:100vw;
+            height:30vw;    
+            position:absolute;
+            left:0;
+            bottom:0;
+            transition: all 0.3s ease-in-out;
+           
+            opacity: 100%;
+
+            &>#Expand-Projects{
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-25%);
+                transition: all .2s ease;
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &>img{
+                    height: auto; aspect-ratio: 1; width: 3vw;
+                }
+                &>span{
+                    font-size: 1vw;
+                }
+                &>.collapse{
+                    display: none;
+                }
+                &:hover{
+                    transform: translateX(-25%) scale(1.1);
+                }
+            }
+        }
+    }
+    
+    
+
 }
 #Project-Container{
     width: 100vw;
     padding-top:5vw;
     
+    
+    
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    position: relative;
+
+
+    
 }
 .Project-Slots{
     
@@ -252,7 +358,7 @@ header{
 #Information{
     
     width: 100vw;
-    height: 40vw;
+    height: fit-content;    
     padding-bottom: 5vw;
     z-index: 1;
     color:whitesmoke;
@@ -332,8 +438,29 @@ header{
         justify-self: center;
     }
 }
+.skills-slot{
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    margin-bottom: 2vw;
+    padding-right:8vw;
+    &>*{
+        width:30vw;
+    }
+    &>h4{
+        font-size: 1.3vw;
+        margin: 0;
+        text-align: right;
+        padding-right: 5vw;
+    }
+    &>span{
+        font-size: 1vw;
+        text-align: left;
+    }
+
+}
 #Information-Education{
-    padding-top: 5vw;
+    padding: 5vw 0;
 }
 #Information-Profile{
     display:flex;
@@ -380,7 +507,69 @@ header{
         
     }
 }
+#Information-Skills{
+    padding-top: 7vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.info-content{
+    opacity: 0;
+    transition: all .2s ease;
+    &.enabled{
+        opacity: 1;
+    }
+}
 
+#Contacts{
+    
+    background-color: #1e1f2b;
+    padding: 5vw;
+    width: 50vw;
+    margin: auto;
+    margin-bottom: 10vw;
+    margin-top: 10vw;
+    border-radius: 6vw;
+    &>div{
+        border-radius: 3vw;
+        background-color: #191a24;
+        width: 100%;
+        margin: auto;
+        height: fit-content;
+        padding-bottom: 10vw;
+        padding-top: 2vw;
+        z-index: 1;
+        color:whitesmoke;
+        text-align: center;
+        &>h1{
+            margin: 0;
+            padding-top: 7vw;
+            margin-bottom: 3vw;
+            font-size: 1.7vw;
+        }
+        
+        & > div{
+            margin-top: 1.5vw;
+            & > a > img{
+                height: auto;
+                aspect-ratio: 1;
+                width: 5vw;
+            }
+        }
+        &>a{
+            color:whitesmoke;
+            text-decoration: none;
+            &:active{
+                color:whitesmoke;
+            }
+            &:visited{
+                color:whitesmoke;
+            }
+        }
+    }
+    
+}
 .tag-container{
     display: flex;
     border-top:solid .1vw #fff;
