@@ -289,6 +289,7 @@ header{
         transition: all 0.3s ease-in-out;
         margin-left: 1vw;
         height: 100%;
+        width:75%;
         
         text-align: left;
         display: flex;
@@ -336,6 +337,20 @@ header{
             bottom: .4vw;
             width: 95%;
             margin-bottom: .7vw;
+            display: flex;
+            border-top:solid .1vw #fff;
+            padding-top: .4vw;
+            margin-top: .2vw;
+            &>.tag{
+                white-space: nowrap;
+                background-color: #37394D;
+                padding:.2vw 1.3vw;
+                font-size: 1.2vw;
+                height:fit-content;
+                border-radius: 10vw;
+                margin-right: .5vw;
+                
+            }
             
         }
         
@@ -397,6 +412,7 @@ header{
         text-align: right;
         grid-row: 2;
         grid-column: 1;
+        font-size: 1.4vw;   
     }
     &>h4{
         margin:0;
@@ -447,6 +463,7 @@ header{
     &>*{
         width:30vw;
     }
+    
     &>h4{
         font-size: 1.3vw;
         margin: 0;
@@ -461,14 +478,18 @@ header{
 }
 #Information-Education{
     padding: 5vw 0;
+    
 }
 #Information-Profile{
     display:flex;
     margin:8vw 10vw;
     justify-content: center;
     position: relative;
+    height:27vw;
     &>div{
         text-align: left;
+        line-height: 1vw;
+        
         width:35vw;
         &>h4{
             font-size: 1.7vw;
@@ -478,9 +499,10 @@ header{
         }
     }
     &>img{
+        z-index: 2;
         margin-left: 5vw;
-        aspect-ratio: 1;
-        height: auto;
+        aspect-ratio: 1 !important; 
+        height: auto !important;
         width:20vw;
         object-position: 50% 30%;
         object-fit: cover;
@@ -558,6 +580,7 @@ header{
             }
         }
         &>a{
+            font-size: 1.2vw;
             color:whitesmoke;
             text-decoration: none;
             &:active{
@@ -570,19 +593,7 @@ header{
     }
     
 }
-.tag-container{
-    display: flex;
-    border-top:solid .1vw #fff;
-    padding-top: .4vw;
-    margin-top: .2vw;
-    &>.tag{
-        background-color: #37394D;
-        padding:.2vw 1.3vw;
-        border-radius: 10vw;
-        margin-right: .5vw;
 
-    }
-}
 .background-circle{
     aspect-ratio: 1;
     height: auto;
