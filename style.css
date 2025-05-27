@@ -640,4 +640,10 @@ header{
     user-select: none; /* Standard syntax */
   }
 
-
+.inline-anchor{
+    
+    color:rgb(255, 174, 0);
+    &:visited{
+        color:rgb(255, 123, 0);
+    }
+}
